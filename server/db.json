@@ -1,0 +1,121 @@
+{ 
+  "productos": [
+    {
+      "codigo": "111",
+      "nombre": "Producto 1",
+      "detalle": "Detalle 1",
+      "rubro": "Rubro 1",
+      "marca": "Marca 1",
+      "precio": "100",
+      "presentacion": "10",
+      "total": "1000",
+      "variacion": "SUBIO",
+      "precio_sugerido": "2000"
+    },
+    {
+      "codigo": "222",
+      "nombre": "Producto 2",
+      "detalle": "Detalle 2",
+      "rubro": "Rubro 2",
+      "marca": "Marca 2",
+      "precio": "200",
+      "presentacion": "20",
+      "total": "2000",
+      "variacion": "NO SUBIO",
+      "precio_sugerido": "4000"
+    },
+    {
+      "codigo": "333",
+      "nombre": "Producto 3",
+      "detalle": "Detalle 3",
+      "rubro": "Rubro 3",
+      "marca": "Marca 3",
+      "precio": "300",
+      "presentacion": "30",
+      "total": "3000",
+      "variacion": "SUBIO",
+      "precio_sugerido": "6000"
+    },
+    {
+      "codigo": "444",
+      "nombre": "Producto 4",
+      "detalle": "Detalle 4",
+      "rubro": "Rubro 4",
+      "marca": "Marca 4",
+      "precio": "400",
+      "presentacion": "40",
+      "total": "4000",
+      "variacion": "SUBIO",
+      "precio_sugerido": "8000"
+    },
+    {
+      "codigo": "555",
+      "nombre": "Producto 5",
+      "detalle": "Detalle 5",
+      "rubro": "Rubro 5",
+      "marca": "Marca 5",
+      "precio": "500",
+      "presentacion": "50",
+      "total": "5000",
+      "variacion": "NO SUBIO",
+      "precio_sugerido": "10000"
+    },
+    {
+      "codigo": "666",
+      "nombre": "Producto 6",
+      "detalle": "Detalle 6",
+      "rubro": "Rubro 6",
+      "marca": "Marca 6",
+      "precio": "600",
+      "presentacion": "60",
+      "total": "6000",
+      "variacion": "SUBIO",
+      "precio_sugerido": "12000"
+    },
+    {
+      "codigo": "777",
+      "nombre": "Producto 7",
+      "detalle": "Detalle 7",
+      "rubro": "Rubro 7",
+      "marca": "Marca 7",
+      "precio": "700",
+      "presentacion": "70",
+      "total": "7000",
+      "variacion": "NO SUBIO",
+      "precio_sugerido": "14000"
+    },
+    {
+      "codigo": "888",
+      "nombre": "Producto 8",
+      "detalle": "Detalle 8",
+      "rubro": "Rubro 8",
+      "marca": "Marca 8",
+      "precio": "800",
+      "presentacion": "80",
+      "total": "8000",
+      "variacion": "SUBIO",
+      "precio_sugerido": "16000"
+    }
+  ],
+  "rubros": [
+    {
+      "codigo": "1",
+      "nombre": "Rubro 1"
+  },
+  {
+    "codigo": "2",
+    "nombre": "Rubro 2"
+  }
+],
+  "marcas": [
+    {
+      "codigo": "1",
+      "nombre": "Marca 1"
+  },
+  {
+    "codigo": "2",
+    "nombre": "Marca 2"
+  }
+]
+
+}

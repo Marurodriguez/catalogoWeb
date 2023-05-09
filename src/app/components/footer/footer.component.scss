@@ -1,0 +1,25 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background-color: #f0f0f0;
+    padding: 0 30px;
+  }
+  
+  .company-name {
+    color: #666666;
+    font-size: 18px;
+  }
+  
+  .contact-email {
+    font-size: 16px;
+    color: #666666;
+    text-align: end;
+    padding-top: 10px;
+  }
+
+a{
+    padding-left: 10px;
+}

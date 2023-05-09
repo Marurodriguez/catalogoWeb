@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="container-fluid listado">
+<div class="container-fluid table-responsive">
+         <table class="tabla">
+            <thead class="tabla-titulo">
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Detalle</th>
+                <th>Precio x kg/unidad</th>
+                <th>Presentación</th>
+                <th>Total</th>
+                <th>Variación</th>
+                <th>Precio sugerido</th>
+              </tr>
+            </thead>
+             <tbody>
+                <tr>
+                    <td colspan="8" class="rubro text-center">RUBRO 1</td>
+                  </tr>
+                  <tr>
+                    <td colspan="8" class="marca text-center">MARCA 1</td>
+                  </tr>
+            <tr *ngFor="let producto of productos">
+                <td>{{ producto.codigo }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.detalle }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.presentacion }}</td>
+                <td>{{ producto.total }}</td>
+                <td class="variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
+                <td>{{ producto.precio_sugerido }}</td>
+              </tr>   
+            </tbody> 
+          </table>
+          
+  </div>
+</div>
+
+<app-footer></app-footer>
