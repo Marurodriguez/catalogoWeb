@@ -1,7 +1,35 @@
 <app-header></app-header>
 
 <div class="container-fluid listado">
-<div class="container-fluid table-responsive">
+
+
+
+    <div class="row panel">
+        <div class="col-2 col-panel-l"></div>
+        <div class="col-10 col-panel-r">
+            <div class="row.row-panel d-flex justify-content-end">
+                <div class="filtros">
+                    <button class="btn">Filtros</button>
+                </div>
+                <div class="input-group barra-busqueda">
+                    <input type="text" class="form-control" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="boton-buscar">
+                    <button class="btn btn-light" type="button" id="boton-buscar"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="actualizar">
+                    <button class="btn btn-panel btn-actualizar d-flex justify-content-center align-items-center">
+                        <img class="img-actualizar" width="30px" src="../../../../assets/actualizar.png" alt="">
+                    </button>
+                </div>
+                <div class="excel">
+                    <button class="btn btn-panel btn-excel d-flex justify-content-center align-items-center">
+                        <img class="img-excel" width="40px" src="../../../../assets/excel.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row table-responsive">
          <table class="tabla">
             <thead class="tabla-titulo">
               <tr>
@@ -17,20 +45,20 @@
             </thead>
              <tbody>
                 <tr>
-                    <td colspan="8" class="rubro text-center">RUBRO 1</td>
+                    <td colspan="8" class="rubro">RUBRO 1</td>
                   </tr>
                   <tr>
-                    <td colspan="8" class="marca text-center">MARCA 1</td>
+                    <td colspan="8" class="marca">MARCA 1</td>
                   </tr>
             <tr *ngFor="let producto of productos">
-                <td>{{ producto.codigo }}</td>
-                <td>{{ producto.nombre }}</td>
-                <td>{{ producto.detalle }}</td>
-                <td>{{ producto.precio }}</td>
-                <td>{{ producto.presentacion }}</td>
-                <td>{{ producto.total }}</td>
-                <td class="variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
-                <td>{{ producto.precio_sugerido }}</td>
+                <td class="producto codigo">{{ producto.codigo }}</td>
+                <td class="producto nombre">{{ producto.nombre }}</td>
+                <td class="producto detalle">{{ producto.detalle }}</td>
+                <td class="producto precio">{{ producto.precio }}</td>
+                <td class="producto prsentacion">{{ producto.presentacion }}</td>
+                <td class="producto total">{{ producto.total }}</td>
+                <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
+                <td class="producto precio_sugerido">{{ producto.precio_sugerido }}</td>
               </tr>   
             </tbody> 
           </table>

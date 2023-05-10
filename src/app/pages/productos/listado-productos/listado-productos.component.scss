@@ -1,11 +1,15 @@
+
+
 .listado {
-    height: 90vh;
+    min-height: 90vh;
     background-color: rgb(199,200,207);
+    font-size: 1em;
   }
-  
+
+
   .tabla {
-    margin-top: 100px;
-    max-width: 100%;
+    margin-left: 10px;
+    max-width: 95%;
     color: #fff;
     border-collapse: collapse;
     width: 100%;
@@ -21,6 +25,11 @@
       padding: 8px;
       text-align: left;
       border-right: 3px solid rgb(255, 255, 255);
+    }
+
+    td.producto{
+        color: rgb(56, 55, 55);
+        font-family: 'Poppins', sans-serif;
     }
   
     th:not(:last-child),
@@ -39,6 +48,8 @@
     .rubro {
       font-size: 1em;
       font-family: 'Poppins', sans-serif;
+      letter-spacing: 2px;
+
     }
   
     .marca {
@@ -61,3 +72,24 @@
 .subio {
     background-color: rgba(255, 255, 0, 0.24);
   }
+
+.panel{
+    height: 100px;
+    .col-panel-l{
+        width: 15%;
+    }
+    .col-panel-r{
+        width: 85%;
+        margin-top: 20px;
+        text-align: right;
+        .barra-busqueda{
+            width: 500px;
+            margin-right:20px;
+        }
+        .btn-panel{
+            width: 60px;
+            height: 60px;
+
+        }
+    }
+}
