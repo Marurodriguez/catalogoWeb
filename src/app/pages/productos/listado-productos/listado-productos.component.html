@@ -30,40 +30,41 @@
     </div>
 
 <div class="row table-responsive">
-         <table class="tabla">
-            <thead class="tabla-titulo">
-              <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Detalle</th>
-                <th>Precio x kg/unidad</th>
-                <th>Presentación</th>
-                <th>Total</th>
-                <th>Variación</th>
-                <th>Precio sugerido</th>
-              </tr>
-            </thead>
-             <tbody>
-                <tr>
-                    <td colspan="8" class="rubro">RUBRO 1</td>
-                  </tr>
-                  <tr>
-                    <td colspan="8" class="marca">MARCA 1</td>
-                  </tr>
-            <tr *ngFor="let producto of productos">
-                <td class="producto codigo">{{ producto.codigo }}</td>
-                <td class="producto nombre">{{ producto.nombre }}</td>
-                <td class="producto detalle">{{ producto.detalle }}</td>
-                <td class="producto precio">{{ producto.precio }}</td>
-                <td class="producto prsentacion">{{ producto.presentacion }}</td>
-                <td class="producto total">{{ producto.total }}</td>
-                <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
-                <td class="producto precio_sugerido">{{ producto.precio_sugerido }}</td>
-              </tr>   
-            </tbody> 
-          </table>
-          
-  </div>
+  <table class="tabla">
+    <thead class="tabla-titulo">
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Detalle</th>
+        <th>Precio x kg/unidad</th>
+        <th>Presentación</th>
+        <th>Total</th>
+        <th>Variación</th>
+        <th>Precio sugerido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let grupo of productosAgrupados">
+        <tr>
+          <th class="rubro" colspan="10">{{ grupo.rubro }}</th>
+        </tr>
+        <tr>
+          <th class="marca" colspan="10">{{ grupo.marca }}</th>
+        </tr>
+        <tr *ngFor="let producto of grupo.productos">
+          <td class="producto codigo">{{ producto.codigo }}</td>
+          <td class="producto nombre">{{ producto.nombre }}</td>
+          <td class="producto detalle">{{ producto.detalle }}</td>
+          <td class="producto precio">{{ producto.precio }}</td>
+          <td class="producto prsentacion">{{ producto.presentacion }}</td>
+          <td class="producto total">{{ producto.total }}</td>
+          <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
+          <td class="producto precio_sugerido">{{ producto.precio_sugerido }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
 </div>
 
 <app-footer></app-footer>

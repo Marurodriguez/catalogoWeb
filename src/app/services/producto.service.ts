@@ -15,6 +15,31 @@ export class ProductoService {
     return this.http.get<Producto[]>(this.apiURL);
   }
 
+  agruparProductos(productos: Producto[]): { rubro: string, marca: string, productos: Producto[] }[] {
+    const productosAgrupados: { rubro: string, marca: string, productos: Producto[] }[] = [];
+
+    productos.sort((a, b) => {
+      if (a.rubro === b.rubro) {
+        return a.marca.localeCompare(b.marca);
+      }
+      return a.rubro.localeCompare(b.rubro);
+    });
+
+    let currentRubro: string | null = null;
+    let currentMarca: string | null = null;
+
+    productos.forEach(producto => {
+      if (producto.rubro !== currentRubro || producto.marca !== currentMarca) {
+        productosAgrupados.push({ rubro: producto.rubro, marca: producto.marca, productos: [] });
+        currentRubro = producto.rubro;
+        currentMarca = producto.marca;
+      }
+      productosAgrupados[productosAgrupados.length - 1].productos.push(producto);
+    });
+
+    return productosAgrupados;
+  }
+
 }
 
 export interface Producto {

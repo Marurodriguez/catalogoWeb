@@ -18,6 +18,9 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
   imports: [
     CommonModule,
     ProductosRoutingModule
+  ],
+  exports: [
+    ListadoProductosComponent
   ]
 })
 export class ProductosModule { }
