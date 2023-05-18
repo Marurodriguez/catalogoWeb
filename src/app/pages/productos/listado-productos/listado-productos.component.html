@@ -21,9 +21,11 @@
                     </button>
                 </div>
                 <div class="excel">
-                    <button class="btn btn-panel btn-excel d-flex justify-content-center align-items-center">
+                    <button class="btn btn-panel btn-excel d-flex justify-content-center align-items-center" (click)="exportarListado()">
                         <img class="img-excel" width="40px" src="../../../../assets/excel.png" alt="">
                     </button>
+
+
                 </div>
             </div>
         </div>
@@ -55,11 +57,11 @@
           <td class="producto codigo">{{ producto.codigo }}</td>
           <td class="producto nombre">{{ producto.nombre }}</td>
           <td class="producto detalle">{{ producto.detalle }}</td>
-          <td class="producto precio">{{ producto.precio }}</td>
+          <td class="producto precio">$ {{ producto.precio }}</td>
           <td class="producto prsentacion">{{ producto.presentacion }}</td>
-          <td class="producto total">{{ producto.total }}</td>
+          <td class="producto total">$ {{ producto.total }}</td>
           <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
-          <td class="producto precio_sugerido">{{ producto.precio_sugerido }}</td>
+          <td class="producto precio_sugerido">$ {{ producto.precio_sugerido }}</td>
         </tr>
       </ng-container>
     </tbody>

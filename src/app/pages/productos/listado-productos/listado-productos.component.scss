@@ -13,6 +13,8 @@
     color: #fff;
     border-collapse: collapse;
     width: 100%;
+    font-weight: bold;
+
   
     tr{
         &:nth-child(even) {
@@ -28,7 +30,7 @@
     }
 
     td.producto{
-        color: rgb(56, 55, 55);
+        color: rgb(46, 45, 45);
         font-family: 'Poppins', sans-serif;
     }
   

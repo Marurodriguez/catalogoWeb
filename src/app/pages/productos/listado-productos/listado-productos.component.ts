@@ -19,4 +19,10 @@ export class ListadoProductosComponent implements OnInit {
         this.productosAgrupados = this.productoService.agruparProductos(this.productos);
       });
   }
+
+  exportarListado(): void {
+    this.productoService.exportarExcel(this.productos);
+  }
 }
+
+

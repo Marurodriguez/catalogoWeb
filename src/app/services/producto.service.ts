@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { saveAs } from 'file-saver';
+import * as XLSX from 'xlsx';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,28 @@ export class ProductoService {
 
     return productosAgrupados;
   }
+
+  exportarExcel(productos: Producto[]): void {
+    const worksheetData = productos.map(producto => ({
+      Código: producto.codigo,
+      Nombre: producto.nombre,
+      Detalle: producto.detalle,
+      'Precio x kg/unidad': producto.precio,
+      Presentación: producto.presentacion,
+      Total: producto.total,
+      Variación: producto.variacion,
+      'Precio sugerido': producto.precio_sugerido
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(worksheetData);
+    const workbook: XLSX.WorkBook = { Sheets: { 'Productos': worksheet }, SheetNames: ['Productos'] };
+
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const excelData: Blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+    saveAs(excelData, 'listado_productos.xlsx');
+  }
+  
 
 }
 
