@@ -12,8 +12,8 @@
                     <button class="btn">Filtros</button>
                 </div>
                 <div class="input-group barra-busqueda">
-                    <input type="text" class="form-control" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="boton-buscar">
-                    <button class="btn btn-light" type="button" id="boton-buscar"><i class="bi bi-search"></i></button>
+                  <input type="text" class="form-control" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="boton-buscar" (keyup.enter)="buscarProductos()" [(ngModel)]="busqueda">
+                  <button (click)="buscarProductos()" class="btn btn-light" type="button" id="boton-buscar"><i class="bi bi-search"></i></button>
                 </div>
                 <div class="actualizar">
                     <button class="btn btn-panel btn-actualizar d-flex justify-content-center align-items-center">
@@ -47,24 +47,31 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let grupo of productosAgrupados">
-        <tr>
-          <th class="rubro" colspan="10">{{ grupo.rubro }}</th>
-        </tr>
-        <tr>
-          <th class="marca" colspan="10">{{ grupo.marca }}</th>
-        </tr>
-        <tr *ngFor="let producto of grupo.productos">
-          <td class="producto codigo">{{ producto.codigo }}</td>
-          <td class="producto nombre">{{ producto.nombre }}</td>
-          <td class="producto detalle">{{ producto.detalle }}</td>
-          <td class="producto precio">$ {{ producto.precio }}</td>
-          <td class="producto prsentacion">{{ producto.presentacion }}</td>
-          <td class="producto total">$ {{ producto.total }}</td>
-          <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
-          <td class="producto precio_sugerido">$ {{ producto.precio_sugerido }}</td>
-        </tr>
+        <ng-container *ngIf="grupo.productos.length > 0">
+          <tr *ngIf="hayProductosFiltrados(grupo)">
+            <th class="rubro" colspan="10">{{ grupo.rubro }}</th>
+          </tr>
+          <tr *ngIf="hayProductosFiltrados(grupo)">
+            <th class="marca" colspan="10">{{ grupo.marca }}</th>
+          </tr>
+          <ng-container *ngIf="productosFiltrados.length > 0">
+            <tr *ngFor="let producto of grupo.productos">
+              <ng-container *ngIf="productosFiltrados.includes(producto)">
+                <td class="producto codigo">{{ producto.codigo }}</td>
+                <td class="producto nombre">{{ producto.nombre }}</td>
+                <td class="producto detalle">{{ producto.detalle }}</td>
+                <td class="producto precio">$ {{ producto.precio }}</td>
+                <td class="producto prsentacion">{{ producto.presentacion }}</td>
+                <td class="producto total">$ {{ producto.total }}</td>
+                <td class="producto variacion" [ngClass]="{'subio': producto.variacion.includes('SUBIO') && !producto.variacion.includes('NO SUBIO')}">{{ producto.variacion }}</td>
+                <td class="producto precio_sugerido">$ {{ producto.precio_sugerido }}</td>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </ng-container>
       </ng-container>
     </tbody>
+    
   </table>
 </div>
 </div>

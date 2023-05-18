@@ -9,10 +9,10 @@ import * as XLSX from 'xlsx';
 })
 export class ProductoService {
   private apiURL = "http://localhost:3000/productos";
+
   constructor(private http: HttpClient) { }
 
-  getProductos():Observable<Producto[]>
-  {
+  getProductos(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.apiURL);
   }
 
@@ -61,8 +61,13 @@ export class ProductoService {
 
     saveAs(excelData, 'listado_productos.xlsx');
   }
-  
 
+  buscarProductos(termino: string, productos: Producto[]): Producto[] {
+    termino = termino.toLowerCase().trim();
+    return productos.filter(producto =>
+      producto.codigo.toLowerCase().includes(termino) || producto.nombre.toLowerCase().includes(termino)
+    );
+  }
 }
 
 export interface Producto {
